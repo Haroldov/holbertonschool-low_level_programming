@@ -1,0 +1,1 @@
+# In this folder you will find the excersises for understanding the c compiler.
