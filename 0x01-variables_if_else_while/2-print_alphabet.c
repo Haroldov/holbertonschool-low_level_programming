@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- *main - the program checks the sign of a number
+ *main - the program prints abc..z
  *
  *Return: returns an int zero
  */
