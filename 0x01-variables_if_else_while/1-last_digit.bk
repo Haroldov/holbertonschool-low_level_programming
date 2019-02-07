@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+/**
+ *main - the program checks the sign of a number
+ *
+ *Return: returns an int zero
+ */
+
+int main(void)
+{
+	int n;
+	int lastDigit;
+	int tmp, tmp_2, tmp_4, tmp_6, tmp_8, tmpN;
+	srand(time(0));
+	n = rand() - RAND_MAX / 2;
+	if (n < 0)
+	{
+		tmp = (((-1 * n) >> 1) << 1);
+		tmpN = -1 * n;
+	}
+	else
+	{
+		tmp = (((n >> 1) << 1) );
+		tmpN = n;
+	}
+	tmp_2 = tmp - 2;
+	tmp_4 = tmp - 4;
+	tmp_6 = tmp - 6;
+	tmp_8 = tmp - 8;
+	if (tmp_2 % 10 == 0)
+	{
+		lastDigit = tmpN - tmp_2;
+	}
+	else
+	{
+		if (tmp_4 % 10 == 0)
+		{
+			lastDigit = tmpN - tmp_4;
+		}
+		else
+		{
+			if (tmp_6 % 10 == 0)
+			{
+				lastDigit = tmpN - tmp_6;
+			}
+			else
+			{
+				if (tmp_8 % 10 == 0)
+					lastDigit = tmpN - tmp_8;
+				else
+					lastDigit = 1;
+			}
+		}
+	}
+	printf("%i\n",tmp);
+	printf("%i\n", tmp_2);
+	printf("%i\n", tmp_4);
+	printf("%i\n", tmp_6);
+	printf("%i\n", tmp-8);
+	if (n % 10 == 0)
+		lastDigit = 0;
+	printf("lastDigit: %i\n", lastDigit);
+	if (n > 0)
+	{
+		printf("%i is positive\n", n);
+	}
+	else
+	{
+		if (n < 0)
+			printf("%i is negative\n", n);
+		else
+			printf("%i is zero\n", n);
+	}
+	return (0);
+}
