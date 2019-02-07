@@ -3,10 +3,9 @@
 #include <time.h>
 
 /**
- * Entry point - main
+ *main - the program checks the sign of a number
  *
- * This program checks the sign of a number
- *
+ *Return: returns an int zero
  */
 
 int main(void)
