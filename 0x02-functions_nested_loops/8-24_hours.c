@@ -8,11 +8,12 @@
 
 void jack_bauer(void)
 {
-	int dh, uh, dm, um;
+	int dh, uh, dm, um, sw;
 
-	for (dh = 0; dh <= 2; dh++)
+	dh = 0;
+	while (dh <= 2)
 	{
-		for (uh = 0; uh <= 3; uh++)
+		for (uh = 0; uh <= 9; uh++)
 		{
 			for (dm = 0; dm <= 5; dm++)
 			{
@@ -24,8 +25,19 @@ void jack_bauer(void)
 					_putchar(dm + '0');
 					_putchar(um + '0');
 					_putchar('\n');
+					if ((um == 9) && (dm == 5) && (uh == 3) && (dh == 2))
+					{
+						sw = 1;
+					}
 				}
+				if (sw == 1)
+					break;
 				}
+			if (sw == 1)
+				break;
 		}
+		dh += 1;
+		if (sw == 1)
+			break;
 	}
 }
