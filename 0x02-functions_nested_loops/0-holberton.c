@@ -3,7 +3,7 @@
 /**
  *main - This code displays the word Holberton in terminal
  *
- *Return: 1 means succesful
+ *Return: 0 means succesful
  */
 
 int main(void)
@@ -16,5 +16,5 @@ int main(void)
 		_putchar(word[i]);
 		i++;
 	}
-	return (1);
+	return (0);
 }
