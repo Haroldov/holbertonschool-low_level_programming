@@ -1,4 +1,9 @@
 #include "holberton.h"
+/**
+ *times_table - print all the tables of mult
+ *
+ *Return: none
+ */
 
 void times_table(void)
 {
@@ -9,21 +14,20 @@ void times_table(void)
 	{
 		mult = (i % 10) * cont;
 		if ((i - 1) % 10 == 9)
-                {
-                        cont += 1;
-                        _putchar('\n');
-                }
-                else
-                {
+		{
+			cont += 1;
+			_putchar('\n');
+		}
+		else
+		{
 			if (i != 0)
 			{
 				_putchar(',');
 				_putchar(' ');
 			}
 		}
-
 		if (mult / 10 != 0)
-			_putchar((mult - (mult % 10))/10 + '0');
+			_putchar((mult - (mult % 10)) / 10 + '0');
 		else
 			_putchar(' ');
 
