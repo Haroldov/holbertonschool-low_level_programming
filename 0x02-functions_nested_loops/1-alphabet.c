@@ -1,5 +1,11 @@
 #include "holberton.h"
 
+/**
+ *print_alphabet - prints the alphabet in terminal
+ *
+ *Return: nothing
+ */
+
 void print_alphabet(void)
 {
 	int i;
