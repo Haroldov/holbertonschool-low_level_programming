@@ -27,10 +27,14 @@ void times_table(void)
 			}
 		}
 		if (mult / 10 != 0)
+		{
 			_putchar((mult - (mult % 10)) / 10 + '0');
+		}
 		else
-			_putchar(' ');
-
+		{
+			if (i % 10 != 0)
+				_putchar(' ');
+		}
 		_putchar((mult % 10) + '0');
 
 	}
