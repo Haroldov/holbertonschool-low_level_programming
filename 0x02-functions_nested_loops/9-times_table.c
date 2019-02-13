@@ -35,7 +35,8 @@ void times_table(void)
 			if (i % 10 != 0)
 				_putchar(' ');
 		}
-		_putchar((mult % 10) + '0');
+		if (i != 100)
+			_putchar((mult % 10) + '0');
 
 	}
 }
