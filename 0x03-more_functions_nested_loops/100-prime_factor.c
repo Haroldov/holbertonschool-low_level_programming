@@ -1,9 +1,13 @@
 #include <stdio.h>
 int isprime(int c);
 
+/**
+ *main - finds and prints the largest prime factor of the number 612852475143
+  *Return: none
+ */
+
 int main(void)
 {
-	/*unsigned long int num = 612852475143;*/
 	unsigned long int cont, num, tmp;
 
 	num = 612852475143;
@@ -25,6 +29,12 @@ int main(void)
 	printf("%li\n", tmp);
 	return (0);
 }
+
+/**
+ *isprime - says if a number is prime or not
+ *@c: the number to be detected
+ *Return: 1 if prime 0 if not
+ */
 
 int isprime(int c)
 {
