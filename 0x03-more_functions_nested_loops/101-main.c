@@ -7,15 +7,12 @@
  */
 int main(void)
 {
-	print_number(98);
-	_putchar('\n');
-	print_number(402);
-	_putchar('\n');
-	print_number(1024);
-	_putchar('\n');
-	print_number(0);
-	_putchar('\n');
-	print_number(-98);
-	_putchar('\n');
-	return (0);
+	int i;
+
+	for (i = -29992; i != -29988; i++)
+	{
+		print_number(i);
+		_putchar('\n');
+	}
+		return (0);
 }
