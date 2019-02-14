@@ -9,7 +9,7 @@ int main(void)
 {
 	int i;
 
-	for (i = -29992; i != -29988; i++)
+	for (i = -2; i != 2; i++)
 	{
 		print_number(i);
 		_putchar('\n');

@@ -24,9 +24,11 @@ void print_number(int n)
 		tmp = n;
 		cp = n;
 	}
-	if (n / 10 == 0)
+	if (cp / 10 == 0)
 	{
-		_putchar(n + '0');
+		if (swn)
+			_putchar('-');
+		_putchar(tmp + '0');
 	}
 	else
 	{
