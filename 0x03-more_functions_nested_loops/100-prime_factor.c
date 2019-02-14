@@ -4,19 +4,25 @@ int isprime(int c);
 int main(void)
 {
 	/*unsigned long int num = 612852475143;*/
-	unsigned long int cont, num;
+	unsigned long int cont, num, tmp;
 
 	num = 612852475143;
-	cont = num - 1;
-	while (cont != 0)
+	cont = num;
+	tmp = 2;
+	while (cont != 1)
 	{
-		if ((num % cont == 0) && (isprime(cont)))
+		if ((cont % tmp == 0) && (isprime(tmp)))
 		{
-			printf("%li\n", cont);
-			break;
+			cont = cont / tmp;
+			if (cont != 1)
+				tmp = 2;
 		}
-		cont--;
+		else
+		{
+			tmp++;
+		}
 	}
+	printf("%li\n", tmp);
 	return (0);
 }
 
