@@ -11,7 +11,7 @@ void more_numbers(void)
 
 	for (rep = 0; rep < 10; rep++)
 	{
-		for (i = 1; i <= 14; i++)
+		for (i = 0; i <= 14; i++)
 		{
 			if ((i / 10) != 0)
 				_putchar((i / 10) + '0');
