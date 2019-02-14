@@ -22,6 +22,7 @@ void print_number(int n)
 	else
 	{
 		tmp = n;
+		cp = n;
 	}
 	if (n % 10 == 0)
 	{
