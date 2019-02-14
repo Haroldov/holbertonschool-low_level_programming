@@ -2,11 +2,13 @@
 
 void print_number(int n)
 {
-	int dec, tmp, sw;
+	int dec, tmp, sw, swn;
 
+	swn = 0;
 	if (n < 10)
 	{
 		n *= -1;
+		swn = 1;
 	}
 	if (n % 10 == 0)
 	{
@@ -20,6 +22,11 @@ void print_number(int n)
 		{
 			if (((tmp/dec)) || (sw == 1))
 			{
+				if (swn)
+				{
+					_putchar('-');
+					swn = 0;
+				}
 				_putchar((tmp / dec)  + '0');
 				tmp = (n % dec);
 				sw = 1;
