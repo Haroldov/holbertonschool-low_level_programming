@@ -13,16 +13,9 @@ int _strcmp(char *s1, char *s2)
 	int i2 = 0;
 	int c = 0;
 
-	while (*(s1 + i1) || *(s2 + i2))
+	while (c == 0 && (*(s1 + i1) || *(s2 + i2)))
 	{
-		if (*(s1 + i1))
-		{
-			c += 1;
-		}
-		if (*(s2 + i2))
-		{
-			c -= 1;
-		}
+		c = *(s1 + i1) - *(s2 + i2);
 		i1++;
 		i2++;
 	}
