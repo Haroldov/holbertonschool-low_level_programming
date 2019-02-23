@@ -10,7 +10,8 @@ int _atoi(char *s)
 {
 	int i = 0;
 	int sign = 1;
-	int num = 0;
+	unsigned int num = 0;
+	int tmp2;
 	int cont = 0;
 	int tmp = 1e9;
 
@@ -41,5 +42,6 @@ int _atoi(char *s)
 		}
 		i++;
 	}
-	return (sign * num);
+	tmp2 = sign * num;
+	return (tmp2);
 }
