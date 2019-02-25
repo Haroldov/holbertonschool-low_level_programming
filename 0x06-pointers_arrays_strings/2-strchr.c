@@ -26,8 +26,7 @@ char *_strchr(char *s, char c)
 		}
 		i++;
 	}
-	if (p != NULL)
-		return (p);
-	else
-		return (NULL);
+	if (*(s + i) == c)
+		p = (s + i);
+	return (p);
 }
