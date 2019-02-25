@@ -33,8 +33,6 @@ char *_strstr(char *haystack, char *needle)
 				}
 			}
 		}
-		printf("i = %i | size = %i | cont = %i\n", i, sizeNeedle, cont);
-		printf("%c\n", *(haystack + i));
 		if (cont == sizeNeedle)
 		{
 			p = haystack + (i - sizeNeedle);
