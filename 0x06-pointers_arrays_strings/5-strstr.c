@@ -19,10 +19,11 @@ char *_strstr(char *haystack, char *needle)
 	while (*(needle + sizeNeedle))
 		sizeNeedle++;
 
-	while (*(haystack + i))
+	while (*(haystack + i) != '\0')
 	{
 		if (*(haystack + i) == *(needle))
 		{
+			cont = 0;
 			for (j = 0; j < sizeNeedle; j++)
 			{
 				if (*(haystack + i) == *(needle + j))
@@ -32,9 +33,13 @@ char *_strstr(char *haystack, char *needle)
 				}
 			}
 		}
+		printf("i = %i | size = %i | cont = %i\n", i, sizeNeedle, cont);
+		printf("%c\n", *(haystack + i));
 		if (cont == sizeNeedle)
+		{
 			p = haystack + (i - sizeNeedle);
 			break;
+		}
 		i++;
 	}
 	return (p);
