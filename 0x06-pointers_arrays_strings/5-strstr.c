@@ -14,6 +14,7 @@ char *_strstr(char *haystack, char *needle)
 	int j = 0;
 	int sizeNeedle = 0;
 	int cont = 0;
+	char *p = NULL;
 
 	while (*(needle + sizeNeedle))
 		sizeNeedle++;
@@ -32,8 +33,9 @@ char *_strstr(char *haystack, char *needle)
 			}
 		}
 		if (cont == sizeNeedle)
+			p = haystack + (i - sizeNeedle);
 			break;
 		i++;
 	}
-	return (haystack + (i - sizeNeedle));
+	return (p);
 }
