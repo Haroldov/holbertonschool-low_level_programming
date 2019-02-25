@@ -22,7 +22,7 @@ char *_strchr(char *s, char c)
 		}
 		else
 		{
-			p = NULL;
+			p = 'NULL';
 		}
 		i++;
 	}
