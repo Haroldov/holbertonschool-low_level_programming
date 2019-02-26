@@ -20,8 +20,8 @@ void print_diagsums(int *a, int size)
 	printf("%i, ", sum);
 	sum = 0;
 	for (i = size - 1; i < (size * size) - 1; i += size - 1)
-        {
-                sum += *(a + i);
-        }
+	{
+		sum += *(a + i);
+	}
 	printf("%i\n", sum);
 }
