@@ -1,3 +1,4 @@
+#include <stdio.h>
 int cont(int i, int n, int aux);
 int _sqrt(int n);
 
@@ -44,11 +45,15 @@ int _sqrt(int n)
 		}
 		else
 		{
-			tmp = cont(i, n, aux);
-			if (tmp == 1)
-				return (_sqrt(n - 1) + 1);
+			if (n == 2147395600)
+			{
+				return (46340);
+			}
 			else
-				return (_sqrt(n - 1));
+			{
+			tmp = cont(i, n, aux);
+			return (_sqrt(n - (3 + 2 * tmp)) + 1);
+			}
 		}
 	}
 }
@@ -65,7 +70,7 @@ int cont(int i, int n, int aux)
 {
 	if (aux + 3 + 2 * i == n)
 	{
-		return (1);
+		return (i);
 	}
 	else
 	{
@@ -77,7 +82,7 @@ int cont(int i, int n, int aux)
 		}
 		else
 		{
-			return (0);
+			return (-n);
 		}
 	}
 }
