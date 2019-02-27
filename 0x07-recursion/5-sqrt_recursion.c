@@ -1,10 +1,11 @@
-/**
- *_sqrt_recursion - computes the natural square root of a number
- *@n: number to compute the square root
- *Return: natural square root of a number
- */
 int cont(int i, int n, int aux);
 int _sqrt(int n);
+
+/**
+ *_sqrt_recursion - computes the natural square root of a number
+ *@k: number to compute the square root
+ *Return: natural square root of a number
+ */
 
 int _sqrt_recursion(int k)
 {
@@ -16,6 +17,12 @@ int _sqrt_recursion(int k)
 	else
 		return (-1);
 }
+
+/**
+ *_sqrt - recursive function to get sqrt in int format from a number
+ *@n: number to get sqrt
+ *Return: sqrt as int
+ */
 
 int _sqrt(int n)
 {
@@ -45,6 +52,14 @@ int _sqrt(int n)
 		}
 	}
 }
+
+/**
+ *cont - verifies if number has a squared root or not
+ *@i: iterative begins in 0
+ *@n: number to check
+ *@aux: auxiliar variable
+ *Return: 1 if number has a square root 0 if not
+ */
 
 int cont(int i, int n, int aux)
 {
