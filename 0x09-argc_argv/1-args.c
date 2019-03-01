@@ -1,7 +1,8 @@
+#define UNUSED(x) (void)(x)
 #include <stdio.h>
 
 /**
- *main - prints its name, followed by a new line
+ *main - prints the number of arguments passed into it
  *@argc: number of arguments
  *@argv: pointer to arguments
  *Return: 1 if successful 0 otherwise
@@ -9,8 +10,7 @@
 
 int main(int argc, char *argv[])
 {
-	if (*argv == NULL)
-		return (1);
-	printf("%s\n", *argv);
-	return (main(argc, argv + 1));
+	UNUSED(argv);
+	printf("%i\n", argc - 1);
+	return (1);
 }
