@@ -1,4 +1,3 @@
-#include "holberton.h"
 #include <stdio.h>
 
 /**
@@ -10,8 +9,9 @@
 
 int main(int argc, char *argv[])
 {
-	if (*argv == NULL)
-		return (1);
-	printf("%s\n", *argv);
-	return (main(argc, argv + 1));
+	int i;
+
+	for (i = 0; i < argc; i++)
+		printf("%s\n", *(argv + i));
+	return (1);
 }
