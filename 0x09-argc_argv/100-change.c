@@ -31,6 +31,25 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
+			cont = comp_min(tmp, arr, cont, i);
+			printf("%i\n", cont);
+			return (0);
+		}
+	}
+}
+
+/**
+ *comp_min - compute the minimum number of coins
+ *@tmp: temporal variable
+ *@arr: pointer to the array of coins
+ *@cont: counter of number of coins
+ *@i: iterator
+ *Return: 1 if error 0 if number negative
+ */
+
+
+int comp_min(int tmp, int *arr, int cont, int i)
+{
 			while (tmp != 0)
 			{
 				while (tmp > arr[i])
@@ -38,7 +57,7 @@ int main(int argc, char *argv[])
 					tmp -= arr[i];
 					cont++;
 					if (tmp == 0)
-                                                break;
+						break;
 				}
 				while (tmp % arr[i] == 0)
 				{
@@ -61,9 +80,5 @@ int main(int argc, char *argv[])
 					}
 				}
 			}
-			printf("%i\n", cont);
-			return (0);
-		}
-	}
-
+			return (cont);
 }
