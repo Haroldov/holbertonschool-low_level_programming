@@ -1,4 +1,4 @@
-#include <stdio.h>
+/*#include <stdio.h>*/
 
 /**
  *main - prints its name, followed by a new line
@@ -11,6 +11,6 @@ int main(int argc, char *argv[])
 {
 	if (*argv == NULL)
 		return (1);
-	printf("%s\n", *argv);
+/*	printf("%s\n", *argv);*/
 	return (main(argc, argv + 1));
 }
