@@ -15,7 +15,6 @@ int main(int argc, char *argv[])
 	int cont = 0;
 	int tmp;
 	int arr[] = {25, 10, 5, 2, 1};
-	int sw = 0;
 
 	if (argc != 2)
 	{
@@ -34,26 +33,36 @@ int main(int argc, char *argv[])
 		{
 			while (tmp != 0)
 			{
-				sw = 0;
-				if (i == 4)
-					i = 0;
+				while (tmp > arr[i])
+				{
+					tmp -= arr[i];
+					cont++;
+					if (tmp == 0)
+                                                break;
+				}
 				while (tmp % arr[i] == 0)
 				{
-					cont++;
 					tmp -= arr[i];
-					sw = 1;
+					cont++;
+					if (tmp == 0)
+						break;
+				}
+				if (tmp % arr[i] != 0 && i < 3)
+				{
 					i++;
 				}
-				if (sw == 1)
-					i = 0;
-				if (tmp % 2 != 0)
+				else
 				{
-					tmp -= 1;
-					cont++;
+					if (tmp != 0)
+					{
+						tmp--;
+						cont++;
+						i = 0;
+					}
 				}
 			}
 			printf("%i\n", cont);
-			return (1);
+			return (0);
 		}
 	}
 
