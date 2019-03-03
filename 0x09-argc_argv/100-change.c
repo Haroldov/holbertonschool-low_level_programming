@@ -1,3 +1,4 @@
+int comp_min(int tmp, int *arr, int cont, int i);
 #include <stdio.h>
 #include <stdlib.h>
 
