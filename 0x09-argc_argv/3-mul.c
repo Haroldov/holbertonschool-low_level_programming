@@ -18,6 +18,6 @@ int main(int argc, char *argv[])
 	else
 	{
 		printf("%i\n", atoi(*(argv + 2)) * atoi(*(argv + 1)));
-		return (atoi(*(argv + 2)) * atoi(*(argv + 1)));
+		return (0);
 	}
 }
