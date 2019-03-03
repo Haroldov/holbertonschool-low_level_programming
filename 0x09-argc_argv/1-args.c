@@ -12,5 +12,5 @@ int main(int argc, char *argv[])
 {
 	UNUSED(argv);
 	printf("%i\n", argc - 1);
-	return (1);
+	return (0);
 }
