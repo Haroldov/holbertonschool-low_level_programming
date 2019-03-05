@@ -30,6 +30,12 @@ char *str_concat(char *s1, char *s2)
 	size += tmp + 1;
 
 	strcat = malloc(size * sizeof(char));
+	if (strcat == NULL)
+	{
+		free(strcat);
+		return(NULL);
+	}
+
 	for (; size >= tmp; size--)
 		*(strcat + size) = *(s2 + size - tmp);
 	for (; size >= 0; size--)
