@@ -10,7 +10,7 @@
 int main(int argc, char *argv[])
 {
 	if (*argv == NULL)
-		return (1);
+		return (0);
 	printf("%s\n", *argv);
 	return (main(argc, argv + 1));
 }

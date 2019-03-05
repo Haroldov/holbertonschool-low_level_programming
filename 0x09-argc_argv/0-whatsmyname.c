@@ -9,8 +9,7 @@
 
 int main(int argc, char *argv[])
 {
-	if (*argv == NULL)
-		return (1);
-	printf("%s\n", *argv);
-	return (main(argc, argv + 1));
+	(void) argc;
+	printf("%s\n", *(argv));
+	return (0);
 }
