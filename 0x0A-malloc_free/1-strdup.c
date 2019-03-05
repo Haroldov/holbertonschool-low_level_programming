@@ -10,7 +10,7 @@
 
 char *_strdup(char *str)
 {
-	int size = 0;
+	int size = 1;
 	char *cpystr;
 
 	if (str == NULL)
@@ -21,6 +21,7 @@ char *_strdup(char *str)
 	while (*(str + size) != '\0')
 		size++;
 
+	printf("%i",size);
 	cpystr = malloc(size * sizeof(char));
 
 	if (cpystr == NULL)
