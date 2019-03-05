@@ -33,7 +33,7 @@ char *str_concat(char *s1, char *s2)
 	if (strcat == NULL)
 	{
 		free(strcat);
-		return(NULL);
+		return (NULL);
 	}
 
 	for (; size >= tmp; size--)
