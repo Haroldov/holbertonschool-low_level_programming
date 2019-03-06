@@ -26,7 +26,6 @@ int **alloc_grid(int width, int height)
 	{
 		free(arr);
 		free(tmp);
-		printf("NULL");
 		return (NULL);
 	}
 
