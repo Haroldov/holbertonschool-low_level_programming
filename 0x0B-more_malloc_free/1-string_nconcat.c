@@ -39,10 +39,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	for (; size >= tmp; size--)
 	{
 		*(strcat + size) = *(s2 + size - tmp);
-		if (size == tmp + n)
-			*(strcat + size) = '\0';
 		if (size == 0)
 			break;
+		if (size == tmp + n)
+			*(strcat + size) = '\0';
 	}
 	for (;; size--)
 	{
@@ -50,6 +50,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 			break;
 		*(strcat + size) = *(s1 + size);
 	}
+	if (s1 != NULL)
+		*(strcat + size) = *(s1 + size);
 	return (strcat);
 }
 
