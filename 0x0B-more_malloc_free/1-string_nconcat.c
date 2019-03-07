@@ -50,7 +50,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 			break;
 		*(strcat + size) = *(s1 + size);
 	}
-	if (s1 != NULL)
+	if (s1 == NULL)
 		*(strcat + size) = *(s1 + size);
 	return (strcat);
 }
