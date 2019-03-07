@@ -39,10 +39,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	for (; size >= tmp; size--)
 	{
 		*(strcat + size) = *(s2 + size - tmp);
-		if (size == 0)
-			break;
 		if (size == tmp + n)
 			*(strcat + size) = '\0';
+		if (size == 0)
+			break;
 	}
 	for (;; size--)
 	{

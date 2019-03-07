@@ -11,7 +11,7 @@ int main(void)
 {
 	char *concat;
 
-	concat = string_nconcat(NULL, "hola2", 250);
+	concat = string_nconcat(NULL, "hola2", 3);
 	printf("%s\n", concat);
         concat = string_nconcat(NULL, NULL, 250);
         printf("%s\n", concat);
