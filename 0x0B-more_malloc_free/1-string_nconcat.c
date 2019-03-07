@@ -46,8 +46,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	for (;; size--)
 	{
-		if (*s1 != '\0')
-			*(strcat + size) = *(s1 + size);
+		*(strcat + size) = *(s1 + size);
 		if (size == 0)
 			break;
 	}
