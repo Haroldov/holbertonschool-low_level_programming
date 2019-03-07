@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "holberton.h"
+unsigned int auxFunc(char *str);
 
 /**
  *string_nconcat - concatenates two strings
@@ -21,35 +22,26 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s1 = aux;
 	if (s2 == NULL)
 		s2 = aux;
-
-	while (*(s1 + size))
-		size++;
-
+	size = auxFunc(s1);
 	tmp = size;
 	size = 0;
-
-	while (*(s2 + size))
-		size++;
-
+	size = auxFunc(s2);
 	if (n >= size)
 		size += tmp + 1;
 	else
 		size = tmp + 1 + n;
-
 	strcat = malloc(size * sizeof(char));
 	if (strcat == NULL)
 	{
 		free(strcat);
 		return (NULL);
 	}
-
 	for (; size >= tmp; size--)
 	{
 		*(strcat + size) = *(s2 + size - tmp);
 		if (size == tmp + 1 + n)
 			*(strcat + size) = '\0';
 	}
-
 	for (;; size--)
 	{
 		*(strcat + size) = *(s1 + size);
@@ -57,4 +49,19 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 			break;
 	}
 	return (strcat);
+}
+
+/**
+ *auxFunc - auxiliar function
+ *@str: computes lenght
+ *Return: unsigned int number
+ */
+
+unsigned int auxFunc(char *str)
+{
+	unsigned int size = 0;
+
+	while (*(str + size))
+		size++;
+	return (size);
 }
