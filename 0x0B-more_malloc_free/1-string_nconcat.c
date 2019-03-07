@@ -46,9 +46,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	for (;; size--)
 	{
-		*(strcat + size) = *(s1 + size);
-		if (size <= 0)
+		if (size == 0)
 			break;
+		*(strcat + size) = *(s1 + size);
 	}
 	return (strcat);
 }
