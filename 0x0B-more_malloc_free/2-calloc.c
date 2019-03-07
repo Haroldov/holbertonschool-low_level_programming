@@ -1,6 +1,5 @@
 #include <stdlib.h>
 
-
 /**
  *_calloc - allocates memory for an array
  *@nmemb: number of elements
@@ -21,7 +20,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		free(allocMem);
 		return (NULL);
 	}
-	for (i = 0; i <= nmemb * size; i++)
+	for (i = 0; i < nmemb * size; i++)
 		*(allocMem + i) = 0;
 	return (allocMem);
 }
