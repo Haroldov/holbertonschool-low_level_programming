@@ -44,13 +44,14 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		if (size == tmp + n)
 			*(strcat + size) = '\0';
 	}
-	if (*s1 != '\0')
-		for (;; size--)
-		{
-			*(strcat + size) = *(s1 + size);
-			if (size == 0)
-				break;
-		}
+	for (;; size--)
+	{
+		*(strcat + size) = *(s1 + size);
+		if (size == 0)
+			break;
+	}
+	if (*s1 == '\0' && *s2 != '\0')
+		*(strcat + size) = *(s2 + size - tmp);
 	return (strcat);
 }
 
