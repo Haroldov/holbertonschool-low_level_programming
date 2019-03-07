@@ -26,7 +26,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	size = auxFunc(s1);
 	tmp = size;
 	size = auxFunc(s2);
-	printf("%i",size);
 	if (n >= size)
 		size += tmp + 1;
 	else
@@ -39,10 +38,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	size--;
 	for (; size >= tmp; size--)
 	{
-		printf("%i",size);
 		*(strcat + size) = *(s2 + size - tmp);
 		if (size == tmp + n)
 			*(strcat + size) = '\0';
+		if (size == 0)
+			break;
 	}
 	for (;; size--)
 	{
