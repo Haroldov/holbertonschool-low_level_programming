@@ -16,16 +16,17 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	unsigned int size = 0;
 	unsigned int tmp = 0;
 	char *strcat;
-	char *aux = "";
+	char *aux1 = "";
+	char *aux2 = "";
 
 	if (s1 == NULL)
-		s1 = aux;
+		s1 = aux1;
 	if (s2 == NULL)
-		s2 = aux;
+		s2 = aux2;
 	size = auxFunc(s1);
 	tmp = size;
-	size = 0;
 	size = auxFunc(s2);
+	printf("%i",size);
 	if (n >= size)
 		size += tmp + 1;
 	else
@@ -33,12 +34,12 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	strcat = malloc(size * sizeof(char));
 	if (strcat == NULL)
 	{
-		free(strcat);
 		return (NULL);
 	}
 	size--;
 	for (; size >= tmp; size--)
 	{
+		printf("%i",size);
 		*(strcat + size) = *(s2 + size - tmp);
 		if (size == tmp + n)
 			*(strcat + size) = '\0';
@@ -46,7 +47,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	for (;; size--)
 	{
 		*(strcat + size) = *(s1 + size);
-		if (size == 0)
+		if (size <= 0)
 			break;
 	}
 	return (strcat);
