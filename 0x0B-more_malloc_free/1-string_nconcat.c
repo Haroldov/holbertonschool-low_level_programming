@@ -40,7 +40,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	for (; size >= tmp; size--)
 	{
 		*(strcat + size) = *(s2 + size - tmp);
-		if (size == tmp + 1 + n)
+		if (size == tmp + n)
 			*(strcat + size) = '\0';
 	}
 	for (;; size--)
