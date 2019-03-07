@@ -36,6 +36,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		free(strcat);
 		return (NULL);
 	}
+	size--;
 	for (; size >= tmp; size--)
 	{
 		*(strcat + size) = *(s2 + size - tmp);
