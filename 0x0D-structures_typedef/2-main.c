@@ -12,7 +12,7 @@ int main(void)
 
 	my_dog.name = NULL;
 	my_dog.age = 3.5;
-	my_dog.owner = "Jay";
+	my_dog.owner = NULL;
 	print_dog(&my_dog);
 	return (0);
 }
