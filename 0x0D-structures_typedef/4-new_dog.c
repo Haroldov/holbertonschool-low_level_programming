@@ -62,5 +62,9 @@ char *_strcpy(char *s)
 	for (; i != 0; i--)
 		*(cpy + i) = *(s + i);
 	*cpy = *s;
+
+
+	for (i = 0; *(s + i) != '\0'; i++)
+		printf("%c | %i\n", *(s + i), i);
 	return (cpy);
 }
