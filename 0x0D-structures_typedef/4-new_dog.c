@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "dog.h"
+char *_strcpy(char *s);
 
 /**
  *new_dog - creates a new dog
@@ -12,19 +13,60 @@
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
+	char *cpyName;
+	char *cpyOwner;
 	dog_t *dog;
 
+/*	dog = malloc(sizeof(dog));
+	if (dog == NULL)
+	{
+		free(dog);
+		return (NULL);
+		}*/
+	cpyName = _strcpy(name);
+	if (cpyName == NULL)
+	{
+		free(cpyName);
+		return (NULL);
+	}
+	cpyOwner = _strcpy(owner);
+	if (cpyOwner == NULL)
+	{
+		free(cpyOwner);
+		free(cpyName);
+		return (NULL);
+	}
 	dog = malloc(sizeof(dog));
 	if (dog == NULL)
 	{
 		free(dog);
 		return (NULL);
 	}
-
-	(*dog).name = name;
+	(*dog).name = cpyName;
 	(*dog).age = age;
-	(*dog).owner = owner;
+	(*dog).owner = cpyOwner;
 
 	return (dog);
 
+}
+
+/**
+ *_strcpy - copy a string
+ *@s: string to copy
+ *Return: pointer to copy
+ */
+
+char *_strcpy(char *s)
+{
+	int i = 0;
+	char *cpy;
+
+	while (*(s + i))
+		i++;
+	i++;
+	cpy = malloc(i * sizeof(char));
+	for (;i != 0; i--)
+		*(cpy + i) = *(s + i);
+	*cpy = *s;
+	return (cpy);
 }
