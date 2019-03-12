@@ -63,7 +63,5 @@ char *_strcpy(char *s)
 		return (NULL);
 	for (; i != 0; --i)
 		*(cpy + i) = *(s + i);
-	*cpy = *s;
-
 	return (cpy);
 }
