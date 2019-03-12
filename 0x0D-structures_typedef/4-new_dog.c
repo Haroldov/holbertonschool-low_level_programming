@@ -65,5 +65,11 @@ char *_strcpy(char *s)
 		*(cpy + i) = *(s + i);
 	*cpy = *s;
 
+	for (i = 0; *(s + i); i++)
+		printf("%c\n", *(s + i));
+	if (*(s + i) == 0)
+		printf("ES ZERO");
+
+
 	return (cpy);
 }
