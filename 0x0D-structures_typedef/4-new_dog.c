@@ -59,7 +59,10 @@ char *_strcpy(char *s)
 	cpy = malloc(i * sizeof(char));
 	if (cpy == NULL)
 		return (NULL);
-	for (; i != 0; --i)
+	i--;
+	for (; i >= 0; i--)
+	{
 		*(cpy + i) = *(s + i);
+	}
 	return (cpy);
 }
