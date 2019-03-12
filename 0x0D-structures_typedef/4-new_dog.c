@@ -38,9 +38,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(dog);
 		return (NULL);
 	}
-	(*dog).name = cpyName;
+	(*dog).name = name;
 	(*dog).age = age;
-	(*dog).owner = cpyOwner;
+	(*dog).owner = owner;
 
 	return (dog);
 
