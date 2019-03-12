@@ -61,6 +61,8 @@ char *_strcpy(char *s)
 		i++;
 	i++;
 	cpy = malloc(i * sizeof(char));
+	if (cpy == NULL)
+		return (NULL);
 	for (; i != 0; i--)
 		*(cpy + i) = *(s + i);
 	*cpy = *s;
