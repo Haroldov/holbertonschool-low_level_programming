@@ -57,6 +57,8 @@ char *_strcpy(char *s)
 	int i = 0;
 	char *cpy;
 
+	if (s == NULL)
+		return (NULL);
 	while (*(s + i))
 		i++;
 	i++;
