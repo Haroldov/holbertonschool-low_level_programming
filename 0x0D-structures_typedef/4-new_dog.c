@@ -13,32 +13,28 @@ char *_strcpy(char *s);
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	char *cpyName;
-	char *cpyOwner;
 	dog_t *dog;
 
-	cpyName = _strcpy(name);
-	if (cpyName == NULL)
-	{
-		free(cpyName);
-		return (NULL);
-	}
-	cpyOwner = _strcpy(owner);
-	if (cpyOwner == NULL)
-	{
-		free(cpyOwner);
-		free(cpyName);
-		return (NULL);
-	}
-	dog = malloc(sizeof(dog));
+	dog = malloc(sizeof(dog_t));
 	if (dog == NULL)
 	{
 		free(dog);
 		return (NULL);
 	}
-	(*dog).name = cpyName;
+	(*dog).name = _strcpy(name);
+	if ((*dog).name == NULL)
+	{
+		free(dog);
+		return (NULL);
+	}
+	(*dog).owner = _strcpy(owner);
+	if ((*dog).owner == NULL)
+	{
+		free((*dog).name);
+		free(dog);
+		return (NULL);
+	}
 	(*dog).age = age;
-	(*dog).owner = cpyOwner;
 
 	return (dog);
 
@@ -55,16 +51,18 @@ char *_strcpy(char *s)
 	int i = 0;
 	char *cpy;
 
+	if (s == NULL)
+		return (NULL);
 	while (*(s + i))
 		i++;
 	i++;
 	cpy = malloc(i * sizeof(char));
-	for (; i != 0; i--)
+	if (cpy == NULL)
+		return (NULL);
+	i--;
+	for (; i >= 0; i--)
+	{
 		*(cpy + i) = *(s + i);
-	*cpy = *s;
-
-
-	for (i = 0; *(s + i) != '\0'; i++)
-		printf("%c | %i\n", *(s + i), i);
+	}
 	return (cpy);
 }

@@ -12,6 +12,6 @@ int main(void)
 
 	my_dog = new_dog("Django", 3.5, "Jay");
 	printf("My name is %s, and I am %.1f :) - Woof!\n", my_dog->name, my_dog->age);
-	printf("Owner: %s\n", my_dog->owner);
+	free_dog(my_dog);
 	return (0);
 }
