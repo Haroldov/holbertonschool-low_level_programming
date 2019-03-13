@@ -35,6 +35,6 @@ int main(int argc, char *argv[])
 	}
 	result = (*p)(num1, num2);
 	printf("%i\n", result);
-	return (0);
+	return (result);
 
 }
