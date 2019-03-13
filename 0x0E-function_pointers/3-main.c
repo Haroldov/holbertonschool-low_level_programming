@@ -14,8 +14,6 @@ int main(int argc, char *argv[])
 	int num1, num2, result;
 	int (*p)(int, int);
 
-	if (argv == NULL)
-		return (1);
 	if (argc != 4)
 	{
 		puts("Error");

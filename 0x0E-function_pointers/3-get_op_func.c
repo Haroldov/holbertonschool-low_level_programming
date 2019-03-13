@@ -10,6 +10,9 @@
 
 int (*get_op_func(char *s))(int, int)
 {
+	if (s == NULL)
+		return (NULL);
+
 	op_t ops[] = {
 		{"+", op_add},
 		{"-", op_sub},
