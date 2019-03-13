@@ -19,12 +19,6 @@ int main(int argc, char *argv[])
 		puts("Error");
 		exit(98);
 	}
-	if (*(argv[2]) != '+' && *(argv[2]) != '-' && *(argv[2]) != '*' &&
-	    *(argv[2]) != '/' && *(argv[2]) != '%')
-	{
-		puts("Error");
-		exit(99);
-	}
 	if (atoi(argv[3]) == 0 && (*(argv[2]) == '/' || *(argv[2]) == '%'))
 	{
 		puts("Error");
@@ -34,6 +28,11 @@ int main(int argc, char *argv[])
 	num1 = atoi(argv[1]);
 	num2 = atoi(argv[3]);
 	p = get_op_func(argv[2]);
+	if (p == NULL)
+	{
+		puts("Error");
+		exit(99);
+	}
 	result = (*p)(num1, num2);
 	printf("%i\n", result);
 	return (0);
