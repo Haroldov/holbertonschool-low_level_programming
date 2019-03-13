@@ -19,11 +19,6 @@ int main(int argc, char *argv[])
 		puts("Error");
 		exit(98);
 	}
-	if (atoi(argv[3]) == 0 && (*(argv[2]) == '/' || *(argv[2]) == '%'))
-	{
-		puts("Error");
-		exit(100);
-	}
 
 	num1 = atoi(argv[1]);
 	num2 = atoi(argv[3]);
