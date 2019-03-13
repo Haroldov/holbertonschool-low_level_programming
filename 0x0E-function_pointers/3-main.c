@@ -11,8 +11,7 @@
 
 int main(int argc, char *argv[])
 {
-	int num1, num2, result;
-	int (*p)(int, int);
+	int result;
 
 	if (argc != 4)
 	{
@@ -20,10 +19,7 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	num1 = atoi(argv[1]);
-	num2 = atoi(argv[3]);
-	p = get_op_func(argv[2]);
-	result = (*p)(num1, num2);
+	result = (*get_op_func(argv[2]))(atoi(argv[1]), atoi(argv[3]));
 	printf("%i\n", result);
 	return (0);
 
