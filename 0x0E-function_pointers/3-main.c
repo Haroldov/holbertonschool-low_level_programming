@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 		puts("Error");
 		exit(99);
 	}
-	if (atoi(argv[3]) == 0 && *(argv[2]) == '/')
+	if (atoi(argv[3]) == 0 && (*(argv[2]) == '/' || *(argv[2]) == '%'))
 	{
 		puts("Error");
 		exit(100);
