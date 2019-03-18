@@ -50,20 +50,47 @@ void print_all(const char * const format, ...)
 	printf("\n");
 }
 
+/**
+ *print_i - print integers
+ *@s: va list
+ *Return: none
+ */
+
 void print_i(va_list s)
 {
 	printf("%i", va_arg(s, int));
 }
+
+
+/**
+ *print_c - print chars
+ *@s: va list
+ *Return: none
+ */
 
 void print_c(va_list s)
 {
 	printf("%c", va_arg(s, int));
 }
 
+
+/**
+ *print_f - print floats
+ *@s: va list
+ *Return: none
+ */
+
 void print_f(va_list s)
 {
 	printf("%f", va_arg(s, double));
 }
+
+
+/**
+ *print_s - print strings
+ *@s: va list
+ *Return: none
+ */
 
 void print_s(va_list s)
 {
