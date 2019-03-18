@@ -32,6 +32,7 @@ void print_all(const char * const format, ...)
 			if (*(fmts[i].c) == *(format + j))
 			{
 				f = fmts[i].func_str;
+				f(valist);
 				break;
 			}
 			else
@@ -40,30 +41,31 @@ void print_all(const char * const format, ...)
 			}
 			i++;
 		}
-		if (f != NULL)
+		if (*(format + j + 1) != '\0' && f != NULL)
 		{
-			f(valist);
+			printf(", ");
 		}
 		j++;
 	}
+	printf("\n");
 }
 
 void print_i(va_list s)
 {
-	printf("%i\n", va_arg(s, int));
+	printf("%i", va_arg(s, int));
 }
 
 void print_c(va_list s)
 {
-	printf("%c\n", va_arg(s, int));
+	printf("%c", va_arg(s, int));
 }
 
 void print_f(va_list s)
 {
-	printf("%f\n", va_arg(s, double));
+	printf("%f", va_arg(s, double));
 }
 
 void print_s(va_list s)
 {
-	printf("%s\n", va_arg(s, char *));
+	printf("%s", va_arg(s, char *));
 }
