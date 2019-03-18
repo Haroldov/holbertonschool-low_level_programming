@@ -26,6 +26,7 @@ void print_all(const char * const format, ...)
 	va_start(valist, format);
 	while (*(format + j) != '\0')
 	{
+		f = NULL;
 		i = 0;
 		while (fmts[i].c != NULL)
 		{
@@ -34,10 +35,6 @@ void print_all(const char * const format, ...)
 				f = fmts[i].func_str;
 				f(valist);
 				break;
-			}
-			else
-			{
-				f = NULL;
 			}
 			i++;
 		}
@@ -48,6 +45,7 @@ void print_all(const char * const format, ...)
 		j++;
 	}
 	printf("\n");
+	va_end(valist);
 }
 
 /**
