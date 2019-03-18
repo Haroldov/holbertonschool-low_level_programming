@@ -93,5 +93,6 @@ void print_f(va_list s)
 void print_s(va_list s)
 {
 	char *str = va_arg(s, char *);
+
 	printf("%s", str == NULL ? "(nil)" : str);
 }
