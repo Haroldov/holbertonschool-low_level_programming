@@ -6,6 +6,6 @@
  */
 int main(void)
 {
-	print_all("ceiss", 'H', 0, NULL, "holaaa");
+	print_all(NULL, 'H', 0, NULL, "holaaa");
 	return (0);
 }
