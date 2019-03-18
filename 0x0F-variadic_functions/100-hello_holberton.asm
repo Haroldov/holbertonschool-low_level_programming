@@ -1,18 +1,13 @@
-section     .text
-global      _start	;must be declared for linker (ld)
+global    _start
+section   .text
+_start:	   mov       rax, 1	; system call for write
+	          mov       rdi, 1 ; file handle 1 is stdout
+	          mov       rsi, message ; address of string to output
+	          mov       rdx, 13	 ; number of bytes
+	          syscall		 ; invoke operating system to do the write
+	          mov       rax, 60	 ; system call for exit
+	          xor       rdi, rdi	 ; exit code 0
+	          syscall		 ; invoke operating system to exit
 
-_start:				;tell linker entry point
-
-	    mov     edx,len	;message length
-	    mov     ecx,msg	;message to write
-	    mov     ebx,1	;file descriptor (stdout)
-	    mov     eax,4	;system call number (sys_write)
-	    int     0x80	;call kernel
-
-	    mov     eax,1	;system call number (sys_exit)
-	    int     0x80	;call kernel
-
-section     .data
-
-msg     db  'Hello, Holberton',0xa	;our dear string
-len     equ $ - msg		;length of our dear string
+	          section   .data
+message:	  db        "Hello, Holberton\n", 17 ; note the newline at the end
