@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "lists.h"
 #include <string.h>
-int _strlen(char *s);
+int _strlen(const char *s);
 
 /**
  *add_node - add a node at the beginning of the list
@@ -36,7 +36,7 @@ list_t *add_node(list_t **head, const char *str)
  *Return: length of a string.
  */
 
-int _strlen(char *s)
+int _strlen(const char *s)
 {
 	int cont = 0;
 
