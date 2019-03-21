@@ -23,7 +23,8 @@ size_t print_list(const list_t *h)
 		i++;
 		if ((*h).next == NULL)
 			break;
-		h = (*h).next;
+		else
+			h = (*h).next;
 	}
 
 	return (i);
