@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "lists.h"
 #include <string.h>
+int _strlen(char *s);
 
 /**
  *add_node - add a node at the beginning of the list
@@ -23,8 +24,25 @@ list_t *add_node(list_t **head, const char *str)
 		free(new);
 		return (NULL);
 	}
-	(*new).len = strlen(str);
+	(*new).len = _strlen(str);
 	(*new).next = *head;
 	*head = new;
 	return (new);
+}
+
+/**
+ *_strlen - compute the length of a string.
+ *@s: string
+ *Return: length of a string.
+ */
+
+int _strlen(char *s)
+{
+	int cont = 0;
+
+	while (*(s + cont) != '\0')
+	{
+		cont++;
+	}
+	return (cont);
 }
