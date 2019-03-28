@@ -49,7 +49,7 @@ unsigned int binary_to_uint(const char *b)
 	if (b == NULL)
 		return (0);
 	i = _strlen((char *)b) - 1;
-        while ((*(b + i) >= '0' && *(b + i) <= '1' && i != 0))
+	while ((*(b + i) >= '0' && *(b + i) <= '1' && i != 0))
 	{
 		bit = *(b + i) - '0';
 		decNum += _pow(2, _strlen((char *)b) - i - 1) * bit;
