@@ -46,7 +46,7 @@ unsigned int binary_to_uint(const char *b)
 {
 	unsigned int i = 0, bit = 0, decNum = 0;
 
-	if (b == NULL)
+	if (b == NULL || *b == '\0')
 		return (0);
 	i = _strlen((char *)b) - 1;
 	while ((*(b + i) >= '0' && *(b + i) <= '1' && i != 0))
