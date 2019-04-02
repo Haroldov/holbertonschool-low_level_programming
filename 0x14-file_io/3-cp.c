@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
 			free(buffer);
 			write_fail(newFilename);
 		}
-	} while (numBytes != 0);
+	} while (numBytes == 1024);
 	free(buffer);
 	endNewfile = close(newFiledesc);
 	endNewfile == -1 ? close_fail(newFiledesc) : (void)0;
