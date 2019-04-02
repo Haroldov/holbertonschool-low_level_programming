@@ -1,0 +1,7 @@
+# 0x14. C - File I/O
+
+*READ
+*WRITE
+*OPEN
+*CLOSE
+*DPRINTF
