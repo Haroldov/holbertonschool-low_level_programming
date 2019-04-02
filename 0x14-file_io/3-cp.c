@@ -11,6 +11,9 @@
 /*malloc, free*/
 #include <stdlib.h>
 
+/*dprintf*/
+#include <stdio.h>
+
 /**
  *main - copies a file
  *@argc: number of arguments
@@ -26,11 +29,11 @@ int main(int argc, char *argv[])
 	/*Check if number of arguments is correct*/
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO,"Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
-        /*Allocate buffer of 1024 chars*/
+	/*Allocate buffer of 1024 chars*/
 	buffer = malloc(1024 * sizeof(char));
 	if (buffer == NULL)
 		return (-1);
@@ -44,7 +47,7 @@ int main(int argc, char *argv[])
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
 		free(buffer);
-		exit (98);
+		exit(98);
 	}
 
 
@@ -55,11 +58,10 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", newFilename);
 		close(fileDesc);
 		free(buffer);
-		exit (99);
+		exit(99);
 	}
 
-	do
-	{
+	do {
 		/*Read the file to be copied*/
 		numBytes = read(fileDesc, buffer, sizeof(char) * 1024);
 		if (numBytes == -1)
@@ -78,21 +80,21 @@ int main(int argc, char *argv[])
 			free(buffer);
 			close(newFiledesc);
 			close(fileDesc);
-			exit (99);
+			exit(99);
 		}
 	} while (numBytes != 0);
 	free(buffer);
 	endNewfile = close(newFiledesc);
-	newFile = close(fileDesc);
+	endFile = close(fileDesc);
 	if (endNewfile == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", endNewfile);
 		exit(100);
 	}
-	if (newFile == -1)
+	if (endFile == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", newFile);
-                exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", endFile);
+		exit(100);
 	}
 	return (0);
 }
