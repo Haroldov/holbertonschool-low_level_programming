@@ -32,8 +32,10 @@ int main(int argc, char *argv[])
 	char *filename, *buffer, *newFilename;
 
 	if (argc != 3)
-	{ dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97); }
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
 	buffer = malloc(1024 * sizeof(char));
 	if (buffer == NULL)
 		return (-1);
@@ -41,18 +43,29 @@ int main(int argc, char *argv[])
 	filename = *(argv + 1);
 	fileDesc = open(filename, O_RDONLY);
 	if (fileDesc == -1)
-	{ free(buffer);
-		create_fail(filename); }
+	{
+		free(buffer);
+		create_fail(filename);
+	}
 	newFiledesc = open(newFilename, O_CREAT | O_TRUNC | O_WRONLY, 0664);
 	if (newFiledesc == -1)
-	{ free(buffer);
-		write_fail(newFilename); }
+	{
+		free(buffer);
+		write_fail(newFilename);
+	}
 	do {
 		numBytes = read(fileDesc, buffer, sizeof(char) * 1024);
+		if (numBytes == -1)
+		{
+			free(buffer);
+			create_fail(filename);
+		}
 		numBytes = write(newFiledesc, buffer, numBytes);
 		if (numBytes == -1)
-		{ free(buffer);
-			write_fail(newFilename); }
+		{
+			free(buffer);
+			write_fail(newFilename);
+		}
 	} while (numBytes != 0);
 	free(buffer);
 	endNewfile = close(newFiledesc);
