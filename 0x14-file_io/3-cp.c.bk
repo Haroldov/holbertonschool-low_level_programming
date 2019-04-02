@@ -31,28 +31,43 @@ int main(int argc, char *argv[])
 	int fileDesc, numBytes, newFiledesc, endFile, endNewfile;
 	char *filename, *buffer, *newFilename;
 
+	/*Check if number of arguments is correct*/
 	if (argc != 3)
 	{ dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97); }
+	/*Allocate buffer of 1024 chars*/
 	buffer = malloc(1024 * sizeof(char));
 	if (buffer == NULL)
 		return (-1);
 	newFilename = *(argv + 2);
 	filename = *(argv + 1);
+	/*Open file to be copied*/
 	fileDesc = open(filename, O_RDONLY);
 	if (fileDesc == -1)
-	{ free(buffer);
-		create_fail(filename); }
+	{
+		free(buffer);
+		create_fail(filename);
+	}
+	/*Create new file or truncate it if it exists*/
 	newFiledesc = open(newFilename, O_CREAT | O_TRUNC | O_WRONLY, 0664);
 	if (newFiledesc == -1)
-	{ free(buffer);
-		write_fail(newFilename); }
+	{
+		close(fileDesc);
+		free(buffer);
+		write_fail(newFilename);
+	}
 	do {
+		/*Read the file to be copied*/
 		numBytes = read(fileDesc, buffer, sizeof(char) * 1024);
+		/*Write into the new file*/
 		numBytes = write(newFiledesc, buffer, numBytes);
 		if (numBytes == -1)
-		{ free(buffer);
-			write_fail(newFilename); }
+		{
+			free(buffer);
+			close(newFiledesc);
+			close(fileDesc);
+			write_fail(newFilename);
+		}
 	} while (numBytes != 0);
 	free(buffer);
 	endNewfile = close(newFiledesc);
