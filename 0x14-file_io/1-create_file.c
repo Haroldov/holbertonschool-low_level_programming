@@ -8,8 +8,6 @@
 /*read and write*/
 #include <unistd.h>
 
-#include <stdio.h>
-
 /**
  *create_file - reads a text file and prints it to the POSIX standard output.
  *@filename: pointer to the string of the name of the file
@@ -25,7 +23,7 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 	if (text_content == NULL)
 	{
-	        text_content = "";
+		text_content = "";
 	}
 	while (*(text_content + len) != '\0')
 		len++;
