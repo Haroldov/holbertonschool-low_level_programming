@@ -56,8 +56,8 @@ int main(int argc, char *argv[])
 	} while (numBytes != 0);
 	free(buffer);
 	endNewfile = close(newFiledesc);
-	endFile = close(fileDesc);
 	endNewfile == -1 ? close_fail(newFiledesc) : (void)0;
+	endFile = close(fileDesc);
 	endFile == -1 ? close_fail(fileDesc) : (void)0;
 	return (0);
 }
