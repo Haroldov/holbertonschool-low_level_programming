@@ -1,48 +1,53 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "lists.h"
 
 /**
- *insert_dnodeint_at_index - inserts a new node at a given position.
- *@h: header of the linked list
- *@idx: index to put the new node
- *@n: data of the new node
- *Return: address of new node
+ *insert_dnodeint_at_index - inserts a new node at a given position
+ *@head: head of the linked list
+ *@idx: index of the node
+ *@n: int to the new struct
+ *Return: address of the new node.
  */
 
-dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
+dlistint_t *insert_dnodeint_at_index(dlistint_t **head, unsigned int idx, int n)
 {
-	dlistint_t *new_node = malloc(sizeof(dlistint_t)), *tmp;
+	dlistint_t *new = malloc(sizeof(dlistint_t)), *tmp;
+	unsigned int cont = 0;
 
-	if (new_node == NULL || h == NULL)
+	if (new == NULL || head == NULL)
 		return (NULL);
-	if (idx == 0 && *h == NULL)
+	tmp = *head;
+	new->n = n;
+	while (cont != idx - 1 && tmp != NULL && idx != 0)
 	{
-		(*new_node).n = n;
-		(*new_node).next = *h;
-		(*new_node).prev = NULL;
-		*h = new_node;
-		return (new_node);
+		cont++;
+		tmp = tmp->next;
 	}
-	tmp = *h;
-	idx--;
-	while ((*tmp).next != NULL && idx != 0)
+	if (*head == NULL || tmp != NULL)
 	{
-		tmp = (*tmp).next;
-		idx--;
-	}
-	if (idx == 0)
-	{
-		(*new_node).n = n;
-		(*new_node).prev = tmp;
-		(*new_node).next = (*tmp).next;
-		(*tmp).next = new_node;
-		(*(new_node->next)).prev = new_node;
-		return (new_node);
+		if (idx == 0)
+		{
+			new->next = *head;
+			new->prev = NULL;
+			if (*head != NULL)
+				(*head)->prev = new;
+			*head = new;
+		}
+		else
+		{
+			new->next = tmp->next;
+			new->prev = tmp;
+			(tmp)->next = new;
+			if (new->next != NULL)
+				new->next->prev = new;
+		}
+		return (new);
 	}
 	else
 	{
-		free(new_node);
+		free(new);
 		return (NULL);
 	}
+
 }
