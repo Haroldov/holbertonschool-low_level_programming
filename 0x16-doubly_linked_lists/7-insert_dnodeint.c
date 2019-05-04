@@ -4,35 +4,35 @@
 
 /**
  *insert_dnodeint_at_index - inserts a new node at a given position
- *@head: head of the linked list
+ *@h: head of the linked list
  *@idx: index of the node
  *@n: int to the new struct
  *Return: address of the new node.
  */
 
-dlistint_t *insert_dnodeint_at_index(dlistint_t **head, unsigned int idx, int n)
+dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *new = malloc(sizeof(dlistint_t)), *tmp;
 	unsigned int cont = 0;
 
-	if (new == NULL || head == NULL)
+	if (new == NULL || h == NULL)
 		return (NULL);
-	tmp = *head;
+	tmp = *h;
 	new->n = n;
 	while (cont != idx - 1 && tmp != NULL && idx != 0)
 	{
 		cont++;
 		tmp = tmp->next;
 	}
-	if (*head == NULL || tmp != NULL)
+	if (*h == NULL || tmp != NULL)
 	{
 		if (idx == 0)
 		{
-			new->next = *head;
+			new->next = *h;
 			new->prev = NULL;
-			if (*head != NULL)
-				(*head)->prev = new;
-			*head = new;
+			if (*h != NULL)
+				(*h)->prev = new;
+			*h = new;
 		}
 		else
 		{
