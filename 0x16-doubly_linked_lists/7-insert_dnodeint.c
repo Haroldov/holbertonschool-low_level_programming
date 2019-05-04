@@ -30,7 +30,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		tmp = (*tmp).next;
 		idx--;
 	}
-	printf("%i\n", idx);
 	if (idx == 0)
 	{
 		(*new_node).n = n;
