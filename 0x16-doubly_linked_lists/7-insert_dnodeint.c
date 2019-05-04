@@ -25,10 +25,11 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		return (new_node);
 	}
 	idx--;
-	while (tmp != NULL && idx != 0)
+	while ((*tmp).next != NULL && idx != 0)
 	{
 		tmp = (*tmp).next;
 		idx--;
+		printf("%i\n", idx);
 	}
 	if (idx == 0)
 	{
