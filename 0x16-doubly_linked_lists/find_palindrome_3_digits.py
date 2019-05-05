@@ -12,8 +12,8 @@ def isPal(num):
         return(-1)
 
 lastPal = 0
-for num1 in range(999):
-    for num2 in range(999):
+for num1 in range(1000):
+    for num2 in range(1000):
         check = isPal(num1 * num2)
         if check == 1:
             lastPal = num1 * num2
