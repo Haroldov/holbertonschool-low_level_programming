@@ -34,7 +34,7 @@ int _atoi(char *s)
 					tmp /= 10;
 					cont++;
 				}
-e			}
+			}
 			num += ((*(s + i)) - '0') * tmp;
 			tmp /= 10;
 			if (tmp == 0)
