@@ -72,7 +72,6 @@ unsigned int _strlen(char *str)
 
 int main(int argc, char *argv[])
 {
-	(void) argc;
 	unsigned int i = 0, j = 0, buf = 0;
 	char *str;
 	/*create table*/
@@ -82,6 +81,7 @@ int main(int argc, char *argv[])
 	/*create password*/
 	char pass[7];
 
+	(void) argc;
 	while (part1[i] != '\0' || part2[j - i] != '\0')
 	{
 		if (part1[i] != '\0')
