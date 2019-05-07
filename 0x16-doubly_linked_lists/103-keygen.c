@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+int _strlen(char *str);
 
 /**
  *get_sum - get sum of all elements of a string
@@ -12,7 +13,7 @@ int get_sum(char *str)
 {
 	unsigned int i, sum = 0;
 
-	for (i = 0; i < strlen(str); i++)
+	for (i = 0; i < _strlen(str); i++)
 		sum += (unsigned int) str[i];
 	return (sum);
 }
@@ -27,7 +28,7 @@ int get_mul(char *str)
 {
 	unsigned int i, sum = 1;
 
-	for (i = 0; i < strlen(str); i++)
+	for (i = 0; i < _strlen(str); i++)
 		sum *= (unsigned int) str[i];
 	return (sum);
 }
@@ -42,7 +43,7 @@ int get_greatest(char *str)
 {
 	unsigned int i, buf = 0;
 
-	for (i = 0; i < strlen(str); i++)
+	for (i = 0; i < _strlen(str); i++)
 		if ((unsigned int) str[i] > buf)
 			buf = (unsigned int) str[i];
 	return (buf);
@@ -101,7 +102,7 @@ int main(int argc, char *argv[])
 	pass[3] = letters[0x3f - (rand() & 0x3f)];
 	buf = 0;
 	str = argv[1];
-	for (i = 0; i < strlen(str); i++)
+	for (i = 0; i < _strlen(str); i++)
 		buf += (unsigned int) str[i] * (unsigned int) str[i];
 	pass[4] = letters[0x3f - ((buf ^ 0xef) & 0x3f)];
 	buf = 0;
