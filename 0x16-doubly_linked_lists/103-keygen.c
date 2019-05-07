@@ -1,7 +1,6 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
-int _strlen(char *str);
+unsigned int _strlen(char *str);
 
 /**
  *get_sum - get sum of all elements of a string
@@ -55,7 +54,7 @@ int get_greatest(char *str)
  *Return: result
  */
 
-int _strlen(char *str)
+unsigned int _strlen(char *str)
 {
 	unsigned int i = 0;
 
