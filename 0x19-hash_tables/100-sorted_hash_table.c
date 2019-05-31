@@ -2,7 +2,8 @@
 #include <string.h>
 #include "hash_tables.h"
 void free_list(shash_node_t *head);
-shash_node_t *sort_node(shash_node_t **head, shash_node_t **tail, shash_node_t *new);
+shash_node_t *sort_node(shash_node_t **head, shash_node_t **tail,
+			shash_node_t *new);
 
 /**
  *shash_table_create - function that creates a hash table
@@ -129,11 +130,13 @@ void shash_table_print(const shash_table_t *ht)
 /**
  *sort_node - inserts a number into a sorted singly linked list.
  *@head: head of the linked list
- *@number: number to add
+ *@tail: tail of the linked list
+ *@new: node to sort
  *Return: the address of the new node, or NULL if it failed
  */
 
-shash_node_t *sort_node(shash_node_t **head, shash_node_t **tail, shash_node_t *new)
+shash_node_t *sort_node(shash_node_t **head, shash_node_t **tail,
+			shash_node_t *new)
 {
 	char *val = new->key;
 	shash_node_t *head_cpy, *tmp;
@@ -176,7 +179,7 @@ shash_node_t *sort_node(shash_node_t **head, shash_node_t **tail, shash_node_t *
 }
 
 /**
- *shash_table_print - prints a hash table in reverse sorted.
+ *shash_table_print_rev - prints a hash table in reverse sorted.
  *@ht: hash table
  *Return: none
  */
