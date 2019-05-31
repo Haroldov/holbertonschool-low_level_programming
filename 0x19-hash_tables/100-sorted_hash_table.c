@@ -160,14 +160,19 @@ shash_node_t *sort_node(shash_node_t **head, shash_node_t **tail,
 		tmp = head_cpy;
 		head_cpy = (*head_cpy).snext;
 	}
-	if ((head_cpy != NULL && head_cpy->snext != NULL) && tmp == *head)
+	if (head_cpy != NULL && tmp == *head)
 	{
-		(*new).snext = tmp;
-		(*tmp).sprev = new;
-		*head = new;
+		if (head_cpy->sprev != NULL && head_cpy->sprev->sprev == NULL)
+			goto sort_node;
+		else
+		{
+			(*new).snext = tmp;
+			(*tmp).sprev = new;
+			*head = new;
+		}
 		return (new);
 	}
-	printf("KEY: %s NEXT KEY %s\n", tmp->key, new->key);
+sort_node:
 	(*new).sprev = tmp;
 	(*new).snext = (*tmp).snext;
 	(*tmp).snext = new;
