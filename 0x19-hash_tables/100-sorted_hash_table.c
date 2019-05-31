@@ -54,6 +54,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		{
 			free(node->value);
 			node->value = strdup(value);
+			sort_node(&(ht->shead), &(ht->stail), node);
 			return (1);
 		}
 		node = node->next;
@@ -152,7 +153,7 @@ shash_node_t *sort_node(shash_node_t **head, shash_node_t **tail, shash_node_t *
 	}
 	while (head_cpy != NULL)
 	{
-		if ((*head_cpy).key[0] > val[0])
+		if (strcmp((*head_cpy).key, val) > 0)
 			break;
 		tmp = head_cpy;
 		head_cpy = (*head_cpy).snext;
