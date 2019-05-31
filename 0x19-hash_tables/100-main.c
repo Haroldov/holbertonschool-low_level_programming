@@ -16,10 +16,10 @@ int main(void)
     shash_table_set(ht, "y", "0");
     shash_table_print(ht);
     shash_table_print_rev(ht);
-    shash_table_set(ht, "j", "1");
+    shash_table_set(ht, "cyz", "1");
     shash_table_print(ht);
     shash_table_print_rev(ht);
-    shash_table_set(ht, "c", "2");
+    shash_table_set(ht, "cz", "2");
     shash_table_print(ht);
     shash_table_print_rev(ht);
     shash_table_set(ht, "b", "3");
@@ -37,6 +37,7 @@ int main(void)
     shash_table_set(ht, "m", "7");
     shash_table_print(ht);
     shash_table_print_rev(ht);
+    printf("a :%s\n", shash_table_get(ht, "a"));
     shash_table_delete(ht);
     return (EXIT_SUCCESS);
 }

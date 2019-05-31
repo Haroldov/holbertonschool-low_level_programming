@@ -220,7 +220,7 @@ void shash_table_print_rev(const shash_table_t *ht)
 
 char *shash_table_get(const shash_table_t *ht, const char *key)
 {
-	unsigned long int index;
+	unsigned long int index = 0;
 	shash_node_t *node;
 
 	if (ht == NULL || key == NULL)
