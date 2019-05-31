@@ -160,13 +160,14 @@ shash_node_t *sort_node(shash_node_t **head, shash_node_t **tail,
 		tmp = head_cpy;
 		head_cpy = (*head_cpy).snext;
 	}
-	if (head_cpy != NULL && tmp == *head)
+	if ((head_cpy != NULL && head_cpy->snext != NULL) && tmp == *head)
 	{
 		(*new).snext = tmp;
 		(*tmp).sprev = new;
 		*head = new;
 		return (new);
 	}
+	printf("KEY: %s NEXT KEY %s\n", tmp->key, new->key);
 	(*new).sprev = tmp;
 	(*new).snext = (*tmp).snext;
 	(*tmp).snext = new;
@@ -277,4 +278,26 @@ void free_list(shash_node_t *head)
 		free((*head).value);
 		free(head);
 	}
+}
+
+/**
+ *_strcmp - compares two strings.
+ *@s1: string one
+ *@s2: string two
+ *Return: int if zero s1 = s2, if neg s1 < s2 and if pos s2 < s1
+ */
+
+int _strcmp(char *s1, char *s2)
+{
+	int i1 = 0;
+	int i2 = 0;
+	int c = 0;
+
+	while (c == 0 && (*(s1 + i1) || *(s2 + i2)))
+	{
+		c = *(s1 + i1) - *(s2 + i2);
+		i1++;
+		i2++;
+	}
+	return (c);
 }

@@ -13,30 +13,32 @@ int main(void)
     shash_table_t *ht;
 
     ht = shash_table_create(1024);
-    shash_table_set(ht, "y", "0");
+    shash_table_set(ht, "jaiber", "0");
     shash_table_print(ht);
-    shash_table_print_rev(ht);
-    shash_table_set(ht, "y", "1");
+    /* shash_table_print_rev(ht); */
+    shash_table_set(ht, "jaimer", "1");
     shash_table_print(ht);
-    shash_table_print_rev(ht);
+    /* shash_table_print_rev(ht); */
+    shash_table_set(ht, "jailer", "1");
+    shash_table_print(ht);
     shash_table_set(ht, "cz", "2");
     shash_table_print(ht);
-    shash_table_print_rev(ht);
+    /* shash_table_print_rev(ht); */
     shash_table_set(ht, "b", "3");
     shash_table_print(ht);
-    shash_table_print_rev(ht);
+    /* shash_table_print_rev(ht); */
     shash_table_set(ht, "z", "4");
     shash_table_print(ht);
-    shash_table_print_rev(ht);
+    /* shash_table_print_rev(ht); */
     shash_table_set(ht, "n", "5");
     shash_table_print(ht);
-    shash_table_print_rev(ht);
+    /* shash_table_print_rev(ht); */
     shash_table_set(ht, "a", "6");
     shash_table_print(ht);
-    shash_table_print_rev(ht);
+    /* shash_table_print_rev(ht); */
     shash_table_set(ht, "m", "7");
     shash_table_print(ht);
-    shash_table_print_rev(ht);
+    /* shash_table_print_rev(ht); */
     printf("a :%s\n", shash_table_get(ht, "a"));
     shash_table_delete(ht);
     return (EXIT_SUCCESS);
