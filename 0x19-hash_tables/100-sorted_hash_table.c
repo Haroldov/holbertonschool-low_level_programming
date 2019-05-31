@@ -55,7 +55,6 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		{
 			free(node->value);
 			node->value = strdup(value);
-			sort_node(&(ht->shead), &(ht->stail), node);
 			return (1);
 		}
 		node = node->next;
