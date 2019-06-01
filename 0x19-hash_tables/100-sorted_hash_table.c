@@ -141,18 +141,14 @@ shash_node_t *sort_node(shash_node_t **head, shash_node_t **tail,
 	shash_node_t *head_cpy, *tmp;
 
 	if (*head != NULL)
-	{
-		head_cpy = *head;
-		tmp = *head;
-	}
+	{       head_cpy = *head;
+		tmp = *head;          }
 	else
-	{
-		(*new).snext = NULL;
+	{       (*new).snext = NULL;
 		(*new).sprev = NULL;
 		*head = new;
 		*tail = new;
-		return (new);
-	}
+		return (new);         }
 	while (head_cpy != NULL)
 	{
 		if (strcmp((*head_cpy).key, val) > 0)
