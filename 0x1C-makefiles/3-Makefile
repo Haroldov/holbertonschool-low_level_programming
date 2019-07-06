@@ -2,6 +2,7 @@ CC = gcc
 SRC = main.c holberton.c
 OBJ = $(SRC:%.c=%.o)
 NAME = holberton
+RM = oclean
 
 %.o: %(SRC)
 	$(CC) -c -o $@ $^
@@ -19,4 +20,4 @@ fclean:
 	rm -f *~ $(NAME)
 	rm -f $(OBJ)
 
-re: oclean all
+re: $(RM) all
