@@ -11,11 +11,13 @@ all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 clean:
-	rm -f *~ $(NAME)
+	rm -f *~ holberton
 
 oclean:
 	rm -f $(OBJ)
 
-fclean: clean $(RM)
+fclean:
+	rm -f *~ $(NAME)
+	rm -f $(OBJ)
 
 re: $(RM) all
