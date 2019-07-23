@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include "binary_trees.h"
 
@@ -20,7 +19,7 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 	binary_tree_levelorder(tree->left, func);
 	binary_tree_levelorder(tree->right, func);
 	if (tree->parent == NULL)
-	 	print_leaves(tree, func);
+		print_leaves(tree, func);
 }
 
 /**
@@ -37,5 +36,5 @@ void print_leaves(const binary_tree_t *tree, void (*func)(int))
 	if (tree->left == NULL && tree->right == NULL)
 		func(tree->n);
 	print_leaves(tree->left, func);
-        print_leaves(tree->right, func);
+	print_leaves(tree->right, func);
 }
