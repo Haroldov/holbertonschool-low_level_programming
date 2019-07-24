@@ -28,6 +28,8 @@ int main(void)
     root->left->right = binary_tree_node(root->left, 56);
     root->right->left = binary_tree_node(root->right, 256);
     root->right->right = binary_tree_node(root->right, 512);
+    root->left->left->left = binary_tree_node(root->left->left, 1);
+    root->right->right->right = binary_tree_node(root->right->right,1000);
 
     binary_tree_print(root);
     binary_tree_levelorder(root, &print_num);
