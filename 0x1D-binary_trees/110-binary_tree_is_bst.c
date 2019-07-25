@@ -14,7 +14,8 @@ int binary_tree_is_bst(const binary_tree_t *tree)
 {
 	if (tree == NULL)
 		return (0);
-	return (check_if_dividedL(tree->left, tree->n) && check_if_dividedR(tree->right, tree->n));
+	return (check_if_dividedL(tree->left, tree->n) &&
+		check_if_dividedR(tree->right, tree->n));
 }
 
 /**
@@ -30,22 +31,26 @@ int check_if_dividedL(const binary_tree_t *tree, int root)
 		return (1);
 	if (tree->left == NULL && tree->right != NULL)
 	{
-		if (tree->n < tree->right->n && tree->right->n < root && tree->n < root)
+		if (tree->n < tree->right->n && tree->right->n < root &&
+		    tree->n < root)
 			return (check_if_dividedL(tree->right, root));
 		else
 			return (0);
 	}
 	if (tree->right == NULL && tree->left != NULL)
 	{
-		if (tree->n > tree->left->n && tree->left->n < root && tree->n < root)
+		if (tree->n > tree->left->n && tree->left->n < root &&
+		    tree->n < root)
 			return (check_if_dividedL(tree->left, root));
 		else
 			return (0);
 	}
 	if (tree->left == NULL && tree->right == NULL)
 		return (1);
-	if (tree->n > tree->left->n && tree->n < tree->right->n && tree->left->n < root && tree->right->n < root && tree->n < root)
-		return (check_if_dividedL(tree->left, root) && check_if_dividedL(tree->right, root));
+	if (tree->n > tree->left->n && tree->n < tree->right->n &&
+	    tree->left->n < root && tree->right->n < root && tree->n < root)
+		return (check_if_dividedL(tree->left, root) &&
+			check_if_dividedL(tree->right, root));
 	else
 		return (0);
 }
@@ -63,22 +68,26 @@ int check_if_dividedR(const binary_tree_t *tree, int root)
 		return (1);
 	if (tree->left == NULL && tree->right != NULL)
 	{
-		if (tree->n < tree->right->n && tree->right->n > root && tree->n > root)
+		if (tree->n < tree->right->n && tree->right->n > root &&
+		    tree->n > root)
 			return (check_if_dividedR(tree->right, root));
 		else
 			return (0);
 	}
 	if (tree->right == NULL && tree->left != NULL)
 	{
-		if (tree->n > tree->left->n && tree->left->n > root && tree->n > root)
+		if (tree->n > tree->left->n && tree->left->n > root &&
+		    tree->n > root)
 			return (check_if_dividedR(tree->left, root));
 		else
 			return (0);
 	}
 	if (tree->left == NULL && tree->right == NULL)
 		return (1);
-	if (tree->n > tree->left->n && tree->n < tree->right->n && tree->left->n > root && tree->right->n > root && tree->n > root)
-		return (check_if_dividedR(tree->left, root) && check_if_dividedR(tree->right, root));
+	if (tree->n > tree->left->n && tree->n < tree->right->n &&
+	    tree->left->n > root && tree->right->n > root && tree->n > root)
+		return (check_if_dividedR(tree->left, root) &&
+			check_if_dividedR(tree->right, root));
 	else
 		return (0);
 }
