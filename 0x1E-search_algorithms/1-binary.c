@@ -22,7 +22,15 @@ int binary_search(int *array, size_t size, int value)
 		printf("%i, ", *(array + i));
 	printf("%i\n", *(array + i));
 	if (value < *array || value > *(array + size - 1))
-		return (-1);
+	{
+		if (size == 1)
+			return (-1);
+		else if (*(array + ind) > value)
+			return (binary_search(array, ind, value));
+		else
+			return (binary_search(array + ind + 1, size - (ind + 1), value)
+				);
+	}
 	if (*(array + ind) == value)
 		return (ind);
 	else if (*(array + ind) > value)
